@@ -1,0 +1,147 @@
+/* Загальний стиль header */
+.navBar {
+    display: flex;
+    justify-content: center; /* Вирівнювання всіх елементів по центру */
+    align-items: center; /* Вертикальне вирівнювання */
+    padding: 15px 40px;
+    background-color: white; /* Білий фон */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Легка тінь */
+    position: fixed;
+    top: 0;
+    left: 0; /* Початок від лівого краю */
+    width: 100%; /* Ширина на весь екран */
+    z-index: 1000;
+    margin: 0; /* Забирає всі відступи */
+    box-sizing: border-box; /* Включає padding і border в розміри */
+}
+
+/* Логотип */
+.logo {
+    position: absolute; /* Розташування для логотипу */
+    left: 40px; /* Відступ від лівого краю */
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+/* Контейнер для навігаційних посилань */
+.navLinks {
+    display: flex;
+    gap: 20px; /* Відступ між посиланнями */
+}
+
+/* Стиль для посилань */
+.navLink {
+    text-decoration: none;
+    font-size: 1rem;
+    color: black;
+    padding: 5px 10px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent; /* Лінія при наведенні */
+}
+
+.navLink:hover {
+    color: #ff4b4b; /* Червоний колір при наведенні */
+    border-bottom: 2px solid #ff4b4b;
+}
+
+/* Відступ контенту сторінки */
+body {
+    margin: 0; /* Забирає відступи */
+    padding-top: 70px; /* Відступ для контенту, щоб не перекривав header */
+    width: 100%; /* Ширина на весь екран */
+    height: 100%; /* Висота на весь екран */
+}
+
+/* Фонове зображення для HomePage */
+.homePage {
+    background-image: url('./decoration/background-home.jpg'); /* Замініть на свій шлях до зображення */
+    background-size: cover; /* Покриття на весь блок */
+    background-position: center; /* Центрування */
+    background-repeat: no-repeat;
+    height: 100vh; /* Висота на весь екран */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: white; /* Білий текст */
+    text-align: left;
+    position: relative;
+    margin: 0; /* Забирає відступи */
+    padding: 0; /* Забирає відступи */
+}
+
+/* Напівпрозорий фон для тексту */
+.content {
+
+    padding: 20px 40px;
+
+}
+
+/* Стиль заголовка */
+.content h1 {
+    font-family: Inter;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    
+}
+
+/* Стиль підзаголовка */
+/* Контейнер для тексту на головній сторінці */
+.homeText {
+    display: flex;
+    flex-direction: column; /* Розміщує елементи вертикально */
+    align-items: flex-start; /* Вирівнювання по лівому краю */
+    justify-content: center; /* Центрує контент по вертикалі */
+    width: 100%; /* Ширина на весь екран */
+    margin: 0; /* Забирає відступи */
+}
+
+/* Стиль для заголовків */
+.homeText h1, .homeText h2 {
+    font-family: Inter;
+    line-height: 1.2;
+    text-align: left;
+    margin: 0;
+    width: 100%; /* Займає 100% ширини контейнера */
+    display: flex;
+    align-items: center; /* Вертикальне вирівнювання тексту */
+}
+
+/* Примусова однакова висота для заголовків */
+.homeText h1, .homeText h2 {
+    margin: 0;
+    height: 60px; /* Встановіть меншу висоту для h1 і h2, щоб вони були ближче один до одного */
+}
+
+/* Відступ між h1 та h2 */
+
+
+/* Стиль кнопки */
+.btn {
+    background-color: #ff4b4b; /* Червона кнопка */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e63b3b; /* Трохи темніший колір при наведенні */
+}
+
+.listOfCamper{
+    width: 888px;
+    flex-direction: column;
+    
+}
