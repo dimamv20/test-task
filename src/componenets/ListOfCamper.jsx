@@ -9,7 +9,7 @@ const ListOfCamper = ({ filters }) => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  // Функція для побудови рядка запиту
+
   const buildQueryString = (filters) => {
     const queryParams = new URLSearchParams();
     queryParams.append('limit', 10);
@@ -17,13 +17,13 @@ const ListOfCamper = ({ filters }) => {
 
     if (filters.location) queryParams.append('location', filters.location);
 
-    // Форматування типу кемпера (видалення пробілів)
+
     if (filters.type) {
       const formattedType = filters.type.replace(/\s+/g, '');
       queryParams.append('form', formattedType);
     }
 
-    // Фільтри обладнання
+
     const equipmentKeys = ['AC', 'TV', 'bathroom', 'kitchen', 'microwave', 'refrigerator', 'gas', 'water', 'radio'];
     equipmentKeys.forEach((key) => {
       if (filters[key]) {
@@ -35,7 +35,7 @@ const ListOfCamper = ({ filters }) => {
   };
 
   useEffect(() => {
-    setCampers([]); // Очистка списку при зміні фільтрів
+    setCampers([]); 
     setPage(1);
     setHasMore(true);
   }, [filters]);
@@ -58,11 +58,11 @@ const ListOfCamper = ({ filters }) => {
             const combinedCampers = [...prevCampers, ...response.data.items];
             const uniqueCampers = combinedCampers.filter(
               (camper, index, self) =>
-                index === self.findIndex((c) => c.id === camper.id) // Видаляє дублікати за унікальним id
+                index === self.findIndex((c) => c.id === camper.id)
             );
             return uniqueCampers;
           });
-          setHasMore(response.data.items.length === 10); // Якщо отримано менше 10, значить більше сторінок немає
+          setHasMore(response.data.items.length === 10); 
         } else {
           setHasMore(false);
           console.error("Unexpected response format:", response.data);
@@ -78,7 +78,7 @@ const ListOfCamper = ({ filters }) => {
     fetchCampers();
   }, [filters, page]);
 
-  // Обробник натискання кнопки "Load More"
+
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import '../App.css'
 
 import acIcon from '../icons/svg/ac.svg';
@@ -52,14 +52,14 @@ const Features = ({ camper }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Тут можна додати логіку для відправки форми
+
     console.log('Form submitted', formData);
   };
 
   return (
     
     <div className="features-booking-container">
-        {/* Ліва частина - Деталі транспортного засобу */}
+
         <div className='left-hand-features'>
             <div className="feature-list">
                 {availableFeatures.map((feature, index) => (
@@ -103,7 +103,7 @@ const Features = ({ camper }) => {
 
       
 
-      {/* Права частина - Форма бронювання */}
+
      
     </div>
   );

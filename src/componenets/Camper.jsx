@@ -38,7 +38,6 @@ const Camper = ({ camper }) => {
     reviews = [],
   } = camper;
 
-  // Карта властивостей до відповідних іконок
   const featureIcons = {
     Automatic: automaticIcon,
     AC: acIcon,
@@ -64,12 +63,12 @@ const Camper = ({ camper }) => {
     { name: 'Water', isAvailable: water },
     { name: 'Automatic', isAvailable: transmission === 'Automatic' },
     { name: 'Petrol', isAvailable: petrol },
-    { name: 'Radio', isAvailable: radio === true }, // Відображення, якщо радіо є
+    { name: 'Radio', isAvailable: radio === true }, 
   ].filter((feature) => feature.isAvailable);
 
   return (
     <div className="camper">
-      {/* Зображення кемпера */}
+
       <img
         src={gallery[0]?.thumb || 'https://via.placeholder.com/150'}
         alt={name}
@@ -81,14 +80,14 @@ const Camper = ({ camper }) => {
         }}
       />
 
-      {/* Деталі кемпера */}
+
       <div className="details-for-camper">
         <div className="label-n-price">
           <h2>{name}</h2>
           <h2 className="price">{price.toLocaleString()}₴</h2>
         </div>
 
-        {/* Рейтинг */}
+
         <div className="rating">
           <div>
             <img src={ratingIcon} width="24" height="24" alt="Rating Icon" />
@@ -99,10 +98,10 @@ const Camper = ({ camper }) => {
           <p className="location">Location: {location}</p>
         </div>
 
-        {/* Опис кемпера з обмеженням тексту */}
+
         <p className="description">{description}</p>
 
-        {/* Особливості кемпера */}
+
         <div className="features">
           {availableFeatures.map((feature, index) => (
             <div key={index} className="feature">
@@ -116,7 +115,7 @@ const Camper = ({ camper }) => {
           ))}
         </div>
 
-        {/* Кнопка "Show More" */}
+
         <button className="show-more-btn" onClick={() => navigate(`/catalog/${camper.id}`)}>
           Show More
         </button>
