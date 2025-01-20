@@ -1,24 +1,24 @@
-/* Загальний стиль header */
+
 .navBar {
     display: flex;
-    justify-content: center; /* Вирівнювання всіх елементів по центру */
-    align-items: center; /* Вертикальне вирівнювання */
+    justify-content: center; 
+    align-items: center; 
     padding: 15px 40px;
-    background-color: rgba(242, 244, 247, 1); /* Білий фон */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Легка тінь */
+    background-color: rgba(242, 244, 247, 1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
-    left: 0; /* Початок від лівого краю */
-    width: 100%; /* Ширина на весь екран */
+    left: 0; 
+    width: 100%; 
     z-index: 1000;
-    margin: 0; /* Забирає всі відступи */
-    box-sizing: border-box; /* Включає padding і border в розміри */
+    margin: 0; 
+    box-sizing: border-box; 
 }
 
-/* Логотип */
+
 .logo {
-    position: absolute; /* Розташування для логотипу */
-    left: 40px; /* Відступ від лівого краю */
+    position: absolute; 
+    left: 40px;
 }
 
 .logo a {
@@ -28,60 +28,59 @@
     color: black;
 }
 
-/* Контейнер для навігаційних посилань */
+
 .navLinks {
     display: flex;
-    gap: 20px; /* Відступ між посиланнями */
+    gap: 20px; 
 }
 
-/* Стиль для посилань */
+
 .navLink {
     text-decoration: none;
     font-size: 1rem;
     color: black;
     padding: 5px 10px;
     transition: color 0.3s ease, border-bottom 0.3s ease;
-    border-bottom: 2px solid transparent; /* Лінія при наведенні */
+    border-bottom: 2px solid transparent; 
 }
 
 .navLink:hover {
-    color: #ff4b4b; /* Червоний колір при наведенні */
+    color: #ff4b4b; 
     border-bottom: 2px solid #ff4b4b;
 }
 
-/* Відступ контенту сторінки */
+
 body {
-    margin: 0; /* Забирає відступи */
-    padding-top: 70px; /* Відступ для контенту, щоб не перекривав header */
-    width: 100%; /* Ширина на весь екран */
-    height: 100%; /* Висота на весь екран */
+    margin: 0; 
+    padding-top: 70px;
+    width: 100%; 
+    height: 100%;
 }
 
-/* Фонове зображення для HomePage */
+
 .homePage {
-    background-image: url('./decoration/background-home.jpg'); /* Замініть на свій шлях до зображення */
-    background-size: cover; /* Покриття на весь блок */
-    background-position: center; /* Центрування */
+    background-image: url('./decoration/background-home.jpg');
+    background-size: cover; 
+    background-position: center; 
     background-repeat: no-repeat;
-    height: 100vh; /* Висота на весь екран */
+    height: 100vh;
     display: flex;
     justify-content: left;
     align-items: center;
-    color: white; /* Білий текст */
+    color: white;
     text-align: left;
     position: relative;
-    margin: 0; /* Забирає відступи */
-    padding: 0; /* Забирає відступи */
+    margin: 0;
+    padding: 0; 
 }
 
-/* Напівпрозорий фон для тексту */
+
 .content {
 
     padding: 20px 40px;
 
 }
 
-/* Стиль заголовка */
 .content h1 {
     font-family: Inter;
     font-size: 48px;
@@ -93,40 +92,38 @@ body {
     
 }
 
-/* Стиль підзаголовка */
-/* Контейнер для тексту на головній сторінці */
+
 .homeText {
     display: flex;
-    flex-direction: column; /* Розміщує елементи вертикально */
-    align-items: flex-start; /* Вирівнювання по лівому краю */
-    justify-content: center; /* Центрує контент по вертикалі */
-    width: 100%; /* Ширина на весь екран */
-    margin: 0; /* Забирає відступи */
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: center;
+    width: 100%;
+    margin: 0; 
 }
 
-/* Стиль для заголовків */
+
 .homeText h1, .homeText h2 {
     font-family: Inter;
     line-height: 1.2;
     text-align: left;
     margin: 0;
-    width: 100%; /* Займає 100% ширини контейнера */
+    width: 100%; 
     display: flex;
-    align-items: center; /* Вертикальне вирівнювання тексту */
+    align-items: center; 
 }
 
-/* Примусова однакова висота для заголовків */
+
 .homeText h1, .homeText h2 {
     margin: 0;
-    height: 60px; /* Встановіть меншу висоту для h1 і h2, щоб вони були ближче один до одного */
+    height: 60px; 
 }
 
-/* Відступ між h1 та h2 */
 
 
-/* Стиль кнопки */
+
 .btn {
-    background-color: #ff4b4b; /* Червона кнопка */
+    background-color: #ff4b4b;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -137,12 +134,12 @@ body {
 }
 
 .btn:hover {
-    background-color: #e63b3b; /* Трохи темніший колір при наведенні */
+    background-color: #e63b3b; 
 }
 .page-catalog{
   display: flex;
 }
-/* Загальний контейнер */
+
 .container-catalog {
   display: flex;
   gap: 40px;
@@ -164,9 +161,11 @@ body {
   color: rgba(71, 84, 103, 1);
 
 }
-/* Фільтри */
+
 .filter-camp-container {
-  width: 300px;
+  width: 400px;
+  padding: 40px;
+  margin:20px;
 }
 
 .filter-camp-location input {
@@ -218,7 +217,7 @@ h4 {
   margin-top: 8px;
 }
 
-/* Кнопка пошуку */
+
 .filter-camp-search button {
   width: 166px;
   height: 56px;
@@ -244,7 +243,7 @@ h4 {
 .vehicle-equipment-icons{
   margin-top: 48px;
 }
-/* Список кемперів */
+
 .list-of-camper ul {
   list-style-type: none;
   padding: 0;
@@ -268,7 +267,7 @@ h4 {
   border-radius: 12px;
 }
 
-/* Деталі кемпера */
+
 .details-for-camper {
   display: flex;
   flex-direction: column;
@@ -294,7 +293,7 @@ h4 {
   color: #000;
 }
 
-/* Рейтинг */
+
 .rating {
   display: flex;
   align-items: center;
@@ -313,7 +312,7 @@ h4 {
   color: #555;
 }
 
-/* Фічі кемпера */
+
 .features {
   display: flex;
   gap: 10px;
@@ -335,7 +334,7 @@ h4 {
   margin-right: 8px;
 }
 
-/* Кнопка "Show More" */
+
 .list-of-camper button {
   width: 166px;
   height: 56px;
@@ -351,13 +350,13 @@ h4 {
   transition: all 0.3s ease;
 }
 
-/* Опис кемпера */
+
 .description {
-  max-height: 60px;  /* Максимальна висота блоку */
-  overflow: hidden;  /* Сховати зайвий текст */
-  text-overflow: ellipsis;  /* Додати три крапки */
+  max-height: 60px; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Обмежити кількість рядків */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   font-size: 16px;
   color: #555;
@@ -451,10 +450,10 @@ h4 {
     border-radius: 20px;
     display: flex;
     align-items: center;
-    padding: 8px 12px; /* Адаптивні внутрішні відступи */
-    gap: 8px; /* Відстань між іконкою та текстом */
-    max-width: 100%; /* Гарантія, що елемент не вийде за межі */
-    white-space: nowrap; /* Запобігання перенесенню тексту */
+    padding: 8px 12px;
+    gap: 8px; 
+    max-width: 100%; 
+    white-space: nowrap; 
   }
   
   .feature img {
@@ -467,7 +466,7 @@ h4 {
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
-    margin: 0; /* Прибирання зовнішніх відступів */
+    margin: 0; 
     text-align: center;
   }
   
@@ -477,12 +476,12 @@ h4 {
     margin: 0;
     display: -webkit-box;
 
-    line-clamp: 1; /* Максимальна кількість рядків */
+    line-clamp: 1;
     box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 1.5; /* Висота рядка */
-    max-height: calc(1.5em * 1); /* Обмеження висоти (рядки * висота рядка) */
+    line-height: 1.5;
+    max-height: calc(1.5em * 1); 
   }
   
   .label{
@@ -497,12 +496,14 @@ h4 {
     align-items: flex-start;
     gap: 40px;
     padding: 40px;
+    width: 631px;
+    height: 588px;
 
   }
   
   .left-hand-features {
     height: 588px;
-    width: 50%;
+    width: 100%;
     background-color: rgba(247, 247, 247, 1);
     padding: 40px;
     border-radius: 10px;
@@ -579,9 +580,8 @@ h4 {
     color: #333;
   }
   
-  /* Блок форми бронювання */
   .booking-form {
-    width: 50%;
+    width: 527px;
     padding: 40px;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -619,6 +619,7 @@ h4 {
   
   .form-group input,
   .form-group textarea {
+    width: 527px;
     padding: 14px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -771,12 +772,8 @@ h4 {
 }
 
 .booking-container {
-  max-width: 641px;
   padding: 40px;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 50px;
 }
 
 .booking-form {
@@ -805,6 +802,7 @@ h4 {
 .booking-form textarea {
   width: 100%;
   padding: 15px;
+  margin: 15px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -834,9 +832,9 @@ h4 {
 }
 .details-container {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: row;
+  gap: 10px;
 }
 
 .tabs-content {
@@ -844,6 +842,6 @@ h4 {
 }
 
 .booking-section {
-  max-width: 641px;
-  width: 100%;
+  width: 641px;
+  height: 588px;
 }

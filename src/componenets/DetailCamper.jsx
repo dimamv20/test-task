@@ -49,10 +49,7 @@ const DetailCamper = () => {
                 <p>Description:</p>
                 <p className="description">{camper.description}</p>
             </div>
-
-            <div className="details-container">
-                <div className="tabs-content">
-                    <div className="tabs">
+            <div className="tabs">
                         <p onClick={() => setActiveTab('features')} className={activeTab === 'features' ? 'active-tab' : ''}>
                             Features
                         </p>
@@ -60,6 +57,9 @@ const DetailCamper = () => {
                             Reviews
                         </p>
                     </div>
+            <div className="details-container">
+                <div className="tabs-content">
+
                     <div className="content">
                         {activeTab === 'features' ? <Features camper={camper} /> : <Review reviews={camper.reviews} />}
                     </div>
