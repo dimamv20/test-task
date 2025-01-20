@@ -7,7 +7,7 @@ import microwaveIcon from '../icons/svg/microwave.svg';
 import tvIcon from '../icons/svg/tv.svg';
 import bathroomIcon from '../icons/svg/bathroom.svg';
 import vanIcon from '../icons/svg/van.svg';
-import refrigeratorIcon from '../icons/svg/Refrigerator.svg';
+import refrigeratorIcon from '../icons/svg/refrigerator.svg';
 import gasIcon from '../icons/svg/gas.svg';
 import waterIcon from '../icons/svg/water.svg';
 import automaticIcon from '../icons/svg/automatic.svg';
