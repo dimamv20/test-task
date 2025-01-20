@@ -4,7 +4,7 @@
     justify-content: center; /* Вирівнювання всіх елементів по центру */
     align-items: center; /* Вертикальне вирівнювання */
     padding: 15px 40px;
-    background-color: white; /* Білий фон */
+    background-color: rgba(242, 244, 247, 1); /* Білий фон */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Легка тінь */
     position: fixed;
     top: 0;
@@ -139,9 +139,711 @@ body {
 .btn:hover {
     background-color: #e63b3b; /* Трохи темніший колір при наведенні */
 }
+.page-catalog{
+  display: flex;
+}
+/* Загальний контейнер */
+.container-catalog {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  font-family: 'Inter', sans-serif;
+}
 
-.listOfCamper{
-    width: 888px;
+#filter{
+
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-bottom: 32px;
+  margin-top: 40px;
+  color: rgba(71, 84, 103, 1);
+
+}
+/* Фільтри */
+.filter-camp-container {
+  width: 300px;
+}
+
+.filter-camp-location input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin: 20px 0 10px;
+}
+
+.icons-filter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.icons-filter div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icons-filter img {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border: 2px solid transparent;
+}
+
+.icons-filter img.selected {
+  border-color: #d32f2f;
+}
+
+.label {
+  font-size: 14px;
+  color: #333;
+  margin-top: 8px;
+}
+
+/* Кнопка пошуку */
+.filter-camp-search button {
+  width: 166px;
+  height: 56px;
+  border-radius: 200px;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #e53935;
+  border: none;
+  margin-top: 40px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-camp-search button:hover {
+  background-color: #c62828;
+}
+.vehicle-type{
+  margin-top: 32px;
+}
+.vehicle-equipment-icons{
+  margin-top: 48px;
+}
+/* Список кемперів */
+.list-of-camper ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.camper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.camper img {
+  width: 200px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Деталі кемпера */
+.details-for-camper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.label-n-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label-n-price h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
+
+/* Рейтинг */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #777;
+}
+
+.rating img {
+  width: 24px;
+  height: 24px;
+}
+
+.location {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Фічі кемпера */
+.features {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.feature img {
+  margin-right: 8px;
+}
+
+/* Кнопка "Show More" */
+.list-of-camper button {
+  width: 166px;
+  height: 56px;
+  border-radius: 200px;
+  margin-top: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #e53935;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Опис кемпера */
+.description {
+  max-height: 60px;  /* Максимальна висота блоку */
+  overflow: hidden;  /* Сховати зайвий текст */
+  text-overflow: ellipsis;  /* Додати три крапки */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Обмежити кількість рядків */
+  -webkit-box-orient: vertical;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.list-of-camper button:hover {
+  background-color: #c62828;
+}
+
+  .title-n-p-detail-page {
+    margin-bottom: 16px;
+  }
+  
+  .title-n-p-detail-page h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .rating img {
+    margin-right: 8px;
+  }
+  
+  .rating div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #777;
+  }
+  
+  .price {
+    margin-top: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 24px;
+  }
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+  }
+  
+.features{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.feature {
+    background-color: rgba(242, 244, 247, 1);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px; /* Адаптивні внутрішні відступи */
+    gap: 8px; /* Відстань між іконкою та текстом */
+    max-width: 100%; /* Гарантія, що елемент не вийде за межі */
+    white-space: nowrap; /* Запобігання перенесенню тексту */
+  }
+  
+  .feature img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .feature p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0; /* Прибирання зовнішніх відступів */
+    text-align: center;
+  }
+  
+  .supporting-text {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+    display: -webkit-box;
+
+    line-clamp: 1; /* Максимальна кількість рядків */
+    box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5; /* Висота рядка */
+    max-height: calc(1.5em * 1); /* Обмеження висоти (рядки * висота рядка) */
+  }
+  
+  .label{
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .features-booking-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 40px;
+
+  }
+  
+  .left-hand-features {
+    height: 588px;
+    width: 50%;
+    background-color: rgba(247, 247, 247, 1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .vehicle-details h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    color: #000;
+  }
+  
+  .vehicle-details-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 40px;
+  }
+  
+  .vehicle-details-list .detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+  }
+  .vehicle-details-list {
+    display: flex;
     flex-direction: column;
-    
+    gap: 12px;
+  }
+  
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 8px;
+  }
+  
+  .detail-row p:first-child {
+    font-weight: 600;
+    color: #000;
+    text-align: left;
+  }
+  
+  .detail-row p:last-child {
+    text-align: right;
+    color: #333;
+  }
+  
+  /* Блок форми бронювання */
+  .booking-form {
+    width: 50%;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-form h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .booking-form p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 6px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .form-group textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  button {
+    width: 100%;
+    background-color: #e53935;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #c62828;
+  }
+
+  .load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .load-more-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .load-more-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .reviews-container {
+    margin-top: 20px;
+  }
+  
+  .review-item {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .review-initial {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .review-rating {
+    font-weight: bold;
+    margin-left: auto;
+  }
+
+  .booking-form {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .booking-form h3 {
+    margin-bottom: 10px;
+  }
+  
+  .booking-form input,
+  .booking-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-submit:hover {
+    background-color: #e63939;
+  }
+.tabs{
+  display: flex;
+  gap: 10px;
+}  
+.tabs p {
+
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+}
+.tabs p {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s ease;
+}
+
+.tabs p.active-tab {
+  border-bottom: 2px solid red;
+  font-weight: bold;
+}
+
+.content-r-f-f{
+  display: flex;
+  flex-direction: row;
+}
+
+.booking-container {
+  max-width: 641px;
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.booking-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #000;
+}
+
+.booking-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.booking-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #c0392b;
+}
+.details-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.tabs-content {
+  flex: 1;
+}
+
+.booking-section {
+  max-width: 641px;
+  width: 100%;
 }

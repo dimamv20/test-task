@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
-import ListOfCamper from '../componenets/ListOfCamper';
 import FilterCamp from '../componenets/FilterCamp';
+import ListOfCamper from '../componenets/ListOfCamper';
 
 const CatalogPage = () => {
-  const [filters, setFilters] = useState(null);
+  const [filters, setFilters] = useState({});
 
-  // Handle the filters passed from FilterCamp
   const handleFilterChange = (newFilters) => {
+    console.log("Filters updated:", newFilters);
     setFilters(newFilters);
   };
 
   return (
-    <div>
-      <h1>Catalog Page</h1>
-      {/* Filter Component */}
+    <div className='page-catalog'>
       <FilterCamp onFilter={handleFilterChange} />
-      {/* List of Campers */}
       <ListOfCamper filters={filters} />
     </div>
   );

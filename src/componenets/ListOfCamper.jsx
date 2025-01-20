@@ -1,74 +1,113 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Camper from './Camper';
+import Camper from './Camper.jsx';
 
 const ListOfCamper = ({ filters }) => {
   const [campers, setCampers] = useState([]);
-  const [filteredCampers, setFilteredCampers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+
+  // Функція для побудови рядка запиту
+  const buildQueryString = (filters) => {
+    const queryParams = new URLSearchParams();
+    queryParams.append('limit', 10);
+    queryParams.append('page', page);
+
+    if (filters.location) queryParams.append('location', filters.location);
+
+    // Форматування типу кемпера (видалення пробілів)
+    if (filters.type) {
+      const formattedType = filters.type.replace(/\s+/g, '');
+      queryParams.append('form', formattedType);
+    }
+
+    // Фільтри обладнання
+    const equipmentKeys = ['AC', 'TV', 'bathroom', 'kitchen', 'microwave', 'refrigerator', 'gas', 'water', 'radio'];
+    equipmentKeys.forEach((key) => {
+      if (filters[key]) {
+        queryParams.append(`${key.toLowerCase()}-true`, '');
+      }
+    });
+
+    return queryParams.toString();
+  };
+
+  useEffect(() => {
+    setCampers([]); // Очистка списку при зміні фільтрів
+    setPage(1);
+    setHasMore(true);
+  }, [filters]);
 
   useEffect(() => {
     const fetchCampers = async () => {
+      setLoading(true);
+      setError(null);
+
+      const queryString = buildQueryString(filters);
+      const url = `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers?${queryString}`;
+
+      console.log("Fetching from API:", url);
+
       try {
-        const response = await axios.get('https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers');
-        setCampers(response.data.items);
-        setFilteredCampers(response.data.items); // Default to all campers
+        const response = await axios.get(url);
+
+        if (response.data && Array.isArray(response.data.items)) {
+          setCampers((prevCampers) => {
+            const combinedCampers = [...prevCampers, ...response.data.items];
+            const uniqueCampers = combinedCampers.filter(
+              (camper, index, self) =>
+                index === self.findIndex((c) => c.id === camper.id) // Видаляє дублікати за унікальним id
+            );
+            return uniqueCampers;
+          });
+          setHasMore(response.data.items.length === 10); // Якщо отримано менше 10, значить більше сторінок немає
+        } else {
+          setHasMore(false);
+          console.error("Unexpected response format:", response.data);
+        }
       } catch (err) {
-        setError('Error fetching campers');
-        console.error(err);
+        setError(`Error fetching campers: ${err.response?.status} - ${err.message}`);
+        console.error("API Error:", err);
       } finally {
         setLoading(false);
       }
     };
 
     fetchCampers();
-  }, []);
+  }, [filters, page]);
 
-  useEffect(() => {
-    if (filters) {
-      let filtered = campers;
+  // Обробник натискання кнопки "Load More"
+  const handleLoadMore = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
 
-      // Filter by location
-      if (filters.location) {
-        filtered = filtered.filter((camper) =>
-          camper.location.toLowerCase().includes(filters.location.toLowerCase())
-        );
-      }
-
-      // Filter by vehicle equipment
-      Object.keys(filters).forEach((key) => {
-        if (filters[key] === true) {
-          filtered = filtered.filter((camper) => camper[key] === true);
-        }
-      });
-
-      // Filter by vehicle type
-      if (filters.type) {
-        filtered = filtered.filter((camper) => camper.form === filters.type);
-      }
-
-      setFilteredCampers(filtered);
-    }
-  }, [filters, campers]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
+  if (error) return <div>{error}</div>;
 
   return (
-    <div>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
-        {filteredCampers.slice(0, 10).map((camper) => (
-          <li key={camper.id}>
-            <Camper camper={camper} />
-          </li>
-        ))}
-      </ul>
+    <div className="list-of-camper">
+      {campers.length > 0 ? (
+        <ul style={{ listStyleType: 'none', padding: 0 }}>
+          {campers.map((camper) => (
+            <li key={`${camper.id}-${camper.location}`}>
+              <Camper camper={camper} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        !loading && <p>No campers found. Please adjust your filters.</p>
+      )}
+
+      {loading && <p>Loading campers...</p>}
+
+      {hasMore && !loading && (
+        <div className="load-more-container">
+          <button onClick={handleLoadMore} className="load-more-btn">
+            Load More
+          </button>
+        </div>
+      )}
     </div>
   );
 };
